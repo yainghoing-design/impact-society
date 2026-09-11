@@ -6,7 +6,7 @@ const key = import.meta.env.VITE_SUPABASE_ANON_KEY || "sb_publishable_nj0Jm72tLU
 export const enabled = Boolean(url && key);
 const sb = enabled ? createClient(url, key) : null;
 
-export const MAX_ROUND_SCORE = 3500; // theoretical max ≈ 3405
+export const MAX_ROUND_SCORE = 20000; // 18 shots, combo + fever + power multiplier
 
 export async function submitScore({ name, score, level, meanMs, mode }) {
   if (!sb) return { ok: false, reason: "offline" };
